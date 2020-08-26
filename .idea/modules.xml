@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidTranscoder.iml" filepath="$PROJECT_DIR$/AndroidTranscoder.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AndroidTranscoder-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AndroidTranscoder-app.iml" group="AndroidTranscoder/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MyProject-AndroidTranscoder.iml" filepath="$PROJECT_DIR$/.idea/modules/MyProject-AndroidTranscoder.iml" group="AndroidTranscoder" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FFmpegAndroid.iml" filepath="$PROJECT_DIR$/.idea/modules/FFmpegAndroid.iml" group="FFmpegAndroid" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FFmpegAndroid-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FFmpegAndroid-app.iml" group="FFmpegAndroid/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

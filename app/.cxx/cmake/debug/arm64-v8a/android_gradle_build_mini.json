@@ -1,19 +1,19 @@
 {
   "buildFiles": [
     "C:\\Users\\xulin\\AppData\\Local\\Android\\Sdk\\ndk\\20.0.5594570\\build\\cmake\\platforms.cmake",
-    "D:\\Android\\MyProject\\AndroidTranscoder\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "D:\\Android\\MyProject\\FFmpegAndroid\\app\\src\\main\\cpp\\CMakeLists.txt",
     "C:\\Users\\xulin\\AppData\\Local\\Android\\Sdk\\ndk\\20.0.5594570\\build\\cmake\\android.toolchain.cmake"
   ],
   "cleanCommands": [
-    "C:\\Users\\xulin\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Android\\MyProject\\AndroidTranscoder\\app\\.cxx\\cmake\\debug\\arm64-v8a\" clean"
+    "C:\\Users\\xulin\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Android\\MyProject\\FFmpegAndroid\\app\\.cxx\\cmake\\debug\\arm64-v8a\" clean"
   ],
-  "buildTargetsCommand": "C:\\Users\\xulin\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"D:\\Android\\MyProject\\AndroidTranscoder\\app\\.cxx\\cmake\\debug\\arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommand": "C:\\Users\\xulin\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"D:\\Android\\MyProject\\FFmpegAndroid\\app\\.cxx\\cmake\\debug\\arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "ffmpeg-cmd-Debug-arm64-v8a": {
       "artifactName": "ffmpeg-cmd",
-      "buildCommand": "C:\\Users\\xulin\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Android\\MyProject\\AndroidTranscoder\\app\\.cxx\\cmake\\debug\\arm64-v8a\" ffmpeg-cmd",
+      "buildCommand": "C:\\Users\\xulin\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Android\\MyProject\\FFmpegAndroid\\app\\.cxx\\cmake\\debug\\arm64-v8a\" ffmpeg-cmd",
       "abi": "arm64-v8a",
-      "output": "D:\\Android\\MyProject\\AndroidTranscoder\\app\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a\\libffmpeg-cmd.so"
+      "output": "D:\\Android\\MyProject\\FFmpegAndroid\\app\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a\\libffmpeg-cmd.so"
     }
   }
 }

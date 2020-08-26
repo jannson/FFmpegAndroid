@@ -72,7 +72,12 @@ static int open_codec_context(const char* filein,int *stream_idx,AVCodecContext 
         st = fmt_ctx->streams[stream_index];
 
         /* find decoder for the stream */
-        dec = avcodec_find_decoder(st->codecpar->codec_id);
+        if(type==AVMEDIA_TYPE_VIDEO &&st->codecpar->codec_id == AV_CODEC_ID_H264)
+            dec = avcodec_find_decoder_by_name("h264_mediacodec");
+        else if(type==AVMEDIA_TYPE_VIDEO && st->codecpar->codec_id == AV_CODEC_ID_HEVC)
+            dec = avcodec_find_decoder_by_name("hevc_mediacodec");
+        else
+            dec = avcodec_find_decoder(st->codecpar->codec_id);
         if (!dec) {
             LOGE( "Failed to find %s codec\n",
                     av_get_media_type_string(type));
@@ -188,6 +193,15 @@ static int decode_packet(int *got_frame, int cached,const char* video_out)
             }
             else if(pix_fmt==AV_PIX_FMT_YUV422P){
                 fmt = "AV_PIX_FMT_YUV422P";
+            }
+            else if(pix_fmt==AV_PIX_FMT_MEDIACODEC){
+                fmt = "AV_PIX_FMT_MEDIACODEC";
+            }
+            else if(pix_fmt==AV_PIX_FMT_NV12){
+                fmt = "AV_PIX_FMT_NV12";
+            }
+            else if(pix_fmt==AV_PIX_FMT_NV21){
+                fmt = "AV_PIX_FMT_NV21";
             }
             else{
                 fmt = "UNKNOWN";
