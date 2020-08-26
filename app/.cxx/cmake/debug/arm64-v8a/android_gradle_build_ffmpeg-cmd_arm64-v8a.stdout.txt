@@ -1,0 +1,691 @@
+ninja: Entering directory `D:\Android\MyProject\AndroidTranscoder\app\.cxx\cmake\debug\arm64-v8a'
+[1/8] Building C object CMakeFiles/ffmpeg-cmd.dir/ffmpeg/decode.c.o
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/decode.c:162:15: warning: 'avcodec_decode_video2' is deprecated [-Wdeprecated-declarations]
+        ret = avcodec_decode_video2(video_dec_ctx, frame, got_frame, &pkt);
+              ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavcodec/avcodec.h:4992:1: note: 'avcodec_decode_video2' has been explicitly marked deprecated here
+attribute_deprecated
+^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/decode.c:213:15: warning: 'avcodec_decode_audio4' is deprecated [-Wdeprecated-declarations]
+        ret = avcodec_decode_audio4(audio_dec_ctx, frame, got_frame, &pkt);
+              ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavcodec/avcodec.h:4943:1: note: 'avcodec_decode_audio4' has been explicitly marked deprecated here
+attribute_deprecated
+^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+2 warnings generated.
+[2/8] Building C object CMakeFiles/ffmpeg-cmd.dir/ffmpeg/ffmpeg_hw.c.o
+[3/8] Building C object CMakeFiles/ffmpeg-cmd.dir/ffmpeg/ffmpeg_filter.c.o
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_filter.c:151:16: warning: returning 'uint8_t *' (aka 'unsigned char *') from a function with result type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+        return ret;
+               ^~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_filter.c:187:1: warning: returning 'uint8_t *' (aka 'unsigned char *') from a function with result type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+DEF_CHOOSE_FORMAT(sample_fmts, enum AVSampleFormat, format, formats,
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_filter.c:179:16: note: expanded from macro 'DEF_CHOOSE_FORMAT'
+        return ret;                                                            \
+               ^~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_filter.c:190:1: warning: returning 'uint8_t *' (aka 'unsigned char *') from a function with result type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+DEF_CHOOSE_FORMAT(sample_rates, int, sample_rate, sample_rates, 0,
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_filter.c:179:16: note: expanded from macro 'DEF_CHOOSE_FORMAT'
+        return ret;                                                            \
+               ^~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_filter.c:193:1: warning: returning 'uint8_t *' (aka 'unsigned char *') from a function with result type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+DEF_CHOOSE_FORMAT(channel_layouts, uint64_t, channel_layout, channel_layouts, 0,
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_filter.c:179:16: note: expanded from macro 'DEF_CHOOSE_FORMAT'
+        return ret;                                                            \
+               ^~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_filter.c:249:12: warning: returning 'uint8_t *' (aka 'unsigned char *') from a function with result type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+    return res;
+           ^~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_filter.c:322:41: warning: assigning to 'uint8_t *' (aka 'unsigned char *') from 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+    fg->inputs[fg->nb_inputs - 1]->name = describe_filter_link(fg, in, 1);
+                                        ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_filter.c:361:47: warning: assigning to 'uint8_t *' (aka 'unsigned char *') from 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+        fg->outputs[fg->nb_outputs - 1]->name = describe_filter_link(fg, cur, 0);
+                                              ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+7 warnings generated.
+[4/8] Building C object CMakeFiles/ffmpeg-cmd.dir/ffmpeg/cmdutils.c.o
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/cmdutils.c:213:18: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    while (child = av_opt_child_class_next(class, child))
+           ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/cmdutils.c:213:18: note: place parentheses around the assignment to silence this warning
+    while (child = av_opt_child_class_next(class, child))
+                 ^
+           (                                            )
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/cmdutils.c:213:18: note: use '==' to turn this assignment into an equality comparison
+    while (child = av_opt_child_class_next(class, child))
+                 ^
+                 ==
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/cmdutils.c:476:12: warning: assigning to 'const unsigned char *' from 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+    for (p = a; *p; p++)
+           ^ ~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/cmdutils.c:485:12: warning: assigning to 'const unsigned char *' from 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+    for (p = a; *p; p++) {
+           ^ ~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/cmdutils.c:1680:22: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    for (i = 0; name = av_get_known_color_name(i, &rgb); i++)
+                ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/cmdutils.c:1680:22: note: place parentheses around the assignment to silence this warning
+    for (i = 0; name = av_get_known_color_name(i, &rgb); i++)
+                     ^
+                (                                      )
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/cmdutils.c:1680:22: note: use '==' to turn this assignment into an equality comparison
+    for (i = 0; name = av_get_known_color_name(i, &rgb); i++)
+                     ^
+                     ==
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/cmdutils.c:2016:13: warning: 4 enumeration values not handled in switch: 'AVMEDIA_TYPE_UNKNOWN', 'AVMEDIA_TYPE_DATA', 'AVMEDIA_TYPE_ATTACHMENT'... [-Wswitch]
+    switch (st->codecpar->codec_type) {
+            ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/cmdutils.c:2031:14: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    while (t = av_dict_get(opts, "", t, AV_DICT_IGNORE_SUFFIX)) {
+           ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/cmdutils.c:2031:14: note: place parentheses around the assignment to silence this warning
+    while (t = av_dict_get(opts, "", t, AV_DICT_IGNORE_SUFFIX)) {
+             ^
+           (                                                  )
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/cmdutils.c:2031:14: note: use '==' to turn this assignment into an equality comparison
+    while (t = av_dict_get(opts, "", t, AV_DICT_IGNORE_SUFFIX)) {
+             ^
+             ==
+6 warnings generated.
+[5/8] Building C object CMakeFiles/ffmpeg-cmd.dir/ffmpeg/ffmpeg.c.o
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:235:9: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+        av_buffersrc_add_frame_flags(ist->filters[i]->filter, frame,
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:266:18: warning: assigning to 'int8_t *' (aka 'signed char *') from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    dst          = frame->data    [0];
+                 ^ ~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:269:29: warning: passing 'int8_t *' (aka 'signed char *') to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        sub2video_copy_rect(dst, dst_linesize, frame->width, frame->height, sub->rects[i]);
+                            ^~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:196:42: note: passing argument to parameter 'dst' here
+static void sub2video_copy_rect(uint8_t *dst, int dst_linesize, int w, int h,
+                                         ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:310:9: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+        av_buffersrc_add_frame(ist->filters[i]->filter, NULL);
+        ^~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:1835:35: warning: passing 'char *' to parameter of type 'const unsigned char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+        avio_write(progress_avio, buf_script.str,
+                                  ^~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavformat/avio.h:479:54: note: passing argument to parameter 'buf' here
+void avio_write(AVIOContext *s, const unsigned char *buf, int size);
+                                                     ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:2092:5: warning: 'av_copy_packet_side_data' is deprecated [-Wdeprecated-declarations]
+    av_copy_packet_side_data(&opkt, pkt);
+    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavcodec/avcodec.h:4639:1: note: 'av_copy_packet_side_data' has been explicitly marked deprecated here
+attribute_deprecated
+^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:2099:19: warning: 'avpicture_fill' is deprecated [-Wdeprecated-declarations]
+        int ret = avpicture_fill(&pict, opkt.data, ost->st->codecpar->format, ost->st->codecpar->width, ost->st->codecpar->height);
+                  ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavcodec/avcodec.h:5637:1: note: 'avpicture_fill' has been explicitly marked deprecated here
+attribute_deprecated
+^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:2170:13: warning: 5 enumeration values not handled in switch: 'AVMEDIA_TYPE_UNKNOWN', 'AVMEDIA_TYPE_DATA', 'AVMEDIA_TYPE_SUBTITLE'... [-Wswitch]
+    switch (ifilter->ist->st->codecpar->codec_type) {
+            ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:2754:17: warning: 5 enumeration values not handled in switch: 'AVMEDIA_TYPE_UNKNOWN', 'AVMEDIA_TYPE_DATA', 'AVMEDIA_TYPE_SUBTITLE'... [-Wswitch]
+        switch (ist->dec_ctx->codec_type) {
+                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:3142:13: warning: 5 enumeration values not handled in switch: 'AVMEDIA_TYPE_UNKNOWN', 'AVMEDIA_TYPE_DATA', 'AVMEDIA_TYPE_SUBTITLE'... [-Wswitch]
+    switch (par_dst->codec_type) {
+            ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:3209:20: warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+        av_strlcpy(encoder_string, LIBAVCODEC_IDENT " ", encoder_string_len);
+                   ^~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/avstring.h:100:25: note: passing argument to parameter 'dst' here
+size_t av_strlcpy(char *dst, const char *src, size_t size);
+                        ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:3211:20: warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+        av_strlcpy(encoder_string, "Lavc ", encoder_string_len);
+                   ^~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/avstring.h:100:25: note: passing argument to parameter 'dst' here
+size_t av_strlcpy(char *dst, const char *src, size_t size);
+                        ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:3212:16: warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+    av_strlcat(encoder_string, ost->enc->name, encoder_string_len);
+               ^~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/avstring.h:118:25: note: passing argument to parameter 'dst' here
+size_t av_strlcat(char *dst, const char *src, size_t size);
+                        ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:3213:49: warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+    av_dict_set(&ost->st->metadata, "encoder",  encoder_string,
+                                                ^~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavutil/dict.h:130:65: note: passing argument to parameter 'value' here
+int av_dict_set(AVDictionary **pm, const char *key, const char *value, int flags);
+                                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:3530:15: warning: 'avcodec_copy_context' is deprecated [-Wdeprecated-declarations]
+        ret = avcodec_copy_context(ost->st->codec, ost->enc_ctx);
+              ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavcodec/avcodec.h:4411:1: note: 'avcodec_copy_context' has been explicitly marked deprecated here
+attribute_deprecated
+^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:3530:45: warning: 'codec' is deprecated [-Wdeprecated-declarations]
+        ret = avcodec_copy_context(ost->st->codec, ost->enc_ctx);
+                                            ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavformat/avformat.h:892:5: note: 'codec' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:3564:45: warning: passing 'uint32_t *' (aka 'unsigned int *') to parameter of type 'int32_t *' (aka 'int *') converts between pointers to integer types with different sign [-Wpointer-sign]
+                    av_display_rotation_set((uint32_t *)dst, 0);
+                                            ^~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavutil/display.h:98:38: note: passing argument to parameter 'matrix' here
+void av_display_rotation_set(int32_t matrix[9], double angle);
+                                     ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:3576:18: warning: 'codec' is deprecated [-Wdeprecated-declarations]
+        ost->st->codec->codec= ost->enc_ctx->codec;
+                 ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavformat/avformat.h:892:5: note: 'codec' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:3963:43: warning: 'codec' is deprecated [-Wdeprecated-declarations]
+            debug = input_streams[0]->st->codec->debug<<1;
+                                          ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavformat/avformat.h:892:5: note: 'codec' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg.c:3986:35: warning: 'codec' is deprecated [-Wdeprecated-declarations]
+            input_streams[i]->st->codec->debug = debug;
+                                  ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavformat/avformat.h:892:5: note: 'codec' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+20 warnings generated.
+[6/8] Building C object CMakeFiles/ffmpeg-cmd.dir/ffmpeg/ffmpeg_opt.c.o
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:308:14: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (sync = strchr(map, ',')) {
+        ~~~~~^~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:308:14: note: place parentheses around the assignment to silence this warning
+    if (sync = strchr(map, ',')) {
+             ^
+        (                      )
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:308:14: note: use '==' to turn this assignment into an equality comparison
+    if (sync = strchr(map, ',')) {
+             ^
+             ==
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:342:26: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+        if (allow_unused = strchr(map, '?'))
+            ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:342:26: note: place parentheses around the assignment to silence this warning
+        if (allow_unused = strchr(map, '?'))
+                         ^
+            (                              )
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:342:26: note: use '==' to turn this assignment into an equality comparison
+        if (allow_unused = strchr(map, '?'))
+                         ^
+                         ==
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:460:22: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (allow_unused = strchr(mapchan, '?'))
+        ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:460:22: note: place parentheses around the assignment to silence this warning
+    if (allow_unused = strchr(mapchan, '?'))
+                     ^
+        (                                  )
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:460:22: note: use '==' to turn this assignment into an equality comparison
+    if (allow_unused = strchr(mapchan, '?'))
+                     ^
+                     ==
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:707:5: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    MATCH_PER_STREAM_OPT(codec_names, str, codec_name, s, st);
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:754:9: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        MATCH_PER_STREAM_OPT(codec_tags, str, codec_tag, ic, st);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:768:9: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        MATCH_PER_STREAM_OPT(discard, str, discard_str, ic, st);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:795:41: warning: 'codec' is deprecated [-Wdeprecated-declarations]
+            if (av_codec_get_lowres(st->codec)) {
+                                        ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavformat/avformat.h:892:5: note: 'codec' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:796:75: warning: 'codec' is deprecated [-Wdeprecated-declarations]
+                av_codec_set_lowres(ist->dec_ctx, av_codec_get_lowres(st->codec));
+                                                                          ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavformat/avformat.h:892:5: note: 'codec' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:797:44: warning: 'codec' is deprecated [-Wdeprecated-declarations]
+                ist->dec_ctx->width  = st->codec->width;
+                                           ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavformat/avformat.h:892:5: note: 'codec' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:798:44: warning: 'codec' is deprecated [-Wdeprecated-declarations]
+                ist->dec_ctx->height = st->codec->height;
+                                           ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavformat/avformat.h:892:5: note: 'codec' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:799:50: warning: 'codec' is deprecated [-Wdeprecated-declarations]
+                ist->dec_ctx->coded_width  = st->codec->coded_width;
+                                                 ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavformat/avformat.h:892:5: note: 'codec' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:800:50: warning: 'codec' is deprecated [-Wdeprecated-declarations]
+                ist->dec_ctx->coded_height = st->codec->coded_height;
+                                                 ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavformat/avformat.h:892:5: note: 'codec' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:810:13: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+            MATCH_PER_STREAM_OPT(frame_rates, str, framerate, ic, st);
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:821:13: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+            MATCH_PER_STREAM_OPT(hwaccels, str, hwaccel, ic, st);
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:848:13: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+            MATCH_PER_STREAM_OPT(hwaccel_devices, str, hwaccel_device, ic, st);
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:855:13: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+            MATCH_PER_STREAM_OPT(hwaccel_output_formats, str,
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:881:13: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+            MATCH_PER_STREAM_OPT(canvas_sizes, str, canvas_size, ic, st);
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1020:25: warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                        o->frame_rates[o->nb_frame_rates - 1].u.str, 0);
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavutil/dict.h:130:65: note: passing argument to parameter 'value' here
+int av_dict_set(AVDictionary **pm, const char *key, const char *value, int flags);
+                                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1024:55: warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+        av_dict_set(&o->g->format_opts, "video_size", o->frame_sizes[o->nb_frame_sizes - 1].u.str, 0);
+                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavutil/dict.h:130:65: note: passing argument to parameter 'value' here
+int av_dict_set(AVDictionary **pm, const char *key, const char *value, int flags);
+                                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1027:57: warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+        av_dict_set(&o->g->format_opts, "pixel_format", o->frame_pix_fmts[o->nb_frame_pix_fmts - 1].u.str, 0);
+                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavutil/dict.h:130:65: note: passing argument to parameter 'value' here
+int av_dict_set(AVDictionary **pm, const char *key, const char *value, int flags);
+                                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1029:5: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    MATCH_PER_TYPE_OPT(codec_names, str,    video_codec_name, ic, "v");
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:64:20: note: expanded from macro 'MATCH_PER_TYPE_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1030:5: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    MATCH_PER_TYPE_OPT(codec_names, str,    audio_codec_name, ic, "a");
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:64:20: note: expanded from macro 'MATCH_PER_TYPE_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1031:5: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    MATCH_PER_TYPE_OPT(codec_names, str, subtitle_codec_name, ic, "s");
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:64:20: note: expanded from macro 'MATCH_PER_TYPE_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1032:5: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    MATCH_PER_TYPE_OPT(codec_names, str,     data_codec_name, ic, "d");
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:64:20: note: expanded from macro 'MATCH_PER_TYPE_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1203:37: warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                dump_attachment(st, o->dump_attachment[i].u.str);
+                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:933:55: note: passing argument to parameter 'filename' here
+static void dump_attachment(AVStream *st, const char *filename)
+                                                      ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1263:9: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        MATCH_PER_STREAM_OPT(codec_names, str, codec_name, s, ost->st);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1346:9: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        MATCH_PER_STREAM_OPT(presets, str, preset, oc, st);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1349:21: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+                buf = get_line(s);
+                    ^ ~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1374:5: warning: assigning to 'const char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    MATCH_PER_STREAM_OPT(time_bases, str, time_base, oc, st);
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1385:5: warning: assigning to 'const char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    MATCH_PER_STREAM_OPT(enc_time_bases, str, time_base, oc, st);
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1409:5: warning: assigning to 'const char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    MATCH_PER_STREAM_OPT(bitstream_filters, str, bsfs, oc, st);
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1460:5: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    MATCH_PER_STREAM_OPT(codec_tags, str, codec_tag, oc, st);
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1475:5: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    MATCH_PER_STREAM_OPT(disposition, str, ost->disposition, oc, st);
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1566:16: warning: returning 'uint8_t *' (aka 'unsigned char *') from a function with result type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+        return read_file(ost->filters_script);
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1599:5: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    MATCH_PER_STREAM_OPT(frame_rates, str, frame_rate, oc, st);
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1607:5: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    MATCH_PER_STREAM_OPT(frame_aspect_ratios, str, frame_aspect_ratio, oc, st);
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1618:5: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    MATCH_PER_STREAM_OPT(filter_scripts, str, ost->filters_script, oc, st);
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1619:5: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    MATCH_PER_STREAM_OPT(filters,        str, ost->filters,        oc, st);
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1630:9: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        MATCH_PER_STREAM_OPT(frame_sizes, str, frame_size, oc, st);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1637:9: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        MATCH_PER_STREAM_OPT(frame_pix_fmts, str, frame_pix_fmt, oc, st);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1651:9: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        MATCH_PER_STREAM_OPT(intra_matrices, str, intra_matrix, oc, st);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1659:9: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        MATCH_PER_STREAM_OPT(chroma_intra_matrices, str, chroma_intra_matrix, oc, st);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1669:9: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        MATCH_PER_STREAM_OPT(inter_matrices, str, inter_matrix, oc, st);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1678:9: warning: assigning to 'const char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        MATCH_PER_STREAM_OPT(rc_overrides, str, p, oc, st);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1724:9: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        MATCH_PER_STREAM_OPT(passlogfiles, str, ost->logfile_prefix, oc, st);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1741:28: warning: initializing 'char *' with an expression of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+                    char  *logbuffer = read_file(logfilename);
+                           ^           ~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1763:9: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        MATCH_PER_STREAM_OPT(forced_key_frames, str, ost->forced_keyframes, oc, st);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1799:5: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    MATCH_PER_STREAM_OPT(filter_scripts, str, ost->filters_script, oc, st);
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1800:5: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    MATCH_PER_STREAM_OPT(filters,        str, ost->filters,        oc, st);
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1807:9: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        MATCH_PER_STREAM_OPT(sample_fmts, str, sample_fmt, oc, st);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1816:9: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        MATCH_PER_STREAM_OPT(apad, str, ost->apad, oc, st);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:1910:9: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        MATCH_PER_STREAM_OPT(frame_sizes, str, frame_size, oc, st);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:52:20: note: expanded from macro 'MATCH_PER_STREAM_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2015:43: warning: 'codec' is deprecated [-Wdeprecated-declarations]
+        avcodec_get_context_defaults3(st->codec, codec);
+                                          ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavformat/avformat.h:892:5: note: 'codec' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2020:34: warning: 'codec' is deprecated [-Wdeprecated-declarations]
+            av_opt_set_dict2(st->codec, &opts, AV_OPT_SEARCH_CHILDREN);
+                                 ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavformat/avformat.h:892:5: note: 'codec' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2027:38: warning: 'codec' is deprecated [-Wdeprecated-declarations]
+            choose_pixel_fmt(st, st->codec, codec, st->codecpar->format);
+                                     ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavformat/avformat.h:892:5: note: 'codec' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2028:9: warning: 'avcodec_copy_context' is deprecated [-Wdeprecated-declarations]
+        avcodec_copy_context(ost->enc_ctx, st->codec);
+        ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavcodec/avcodec.h:4411:1: note: 'avcodec_copy_context' has been explicitly marked deprecated here
+attribute_deprecated
+^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2028:48: warning: 'codec' is deprecated [-Wdeprecated-declarations]
+        avcodec_copy_context(ost->enc_ctx, st->codec);
+                                               ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavformat/avformat.h:892:5: note: 'codec' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2162:21: warning: 4 enumeration values not handled in switch: 'AVMEDIA_TYPE_UNKNOWN', 'AVMEDIA_TYPE_DATA', 'AVMEDIA_TYPE_ATTACHMENT'... [-Wswitch]
+            switch (ofilter->type) {
+                    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2255:9: warning: assigning to 'char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        MATCH_PER_TYPE_OPT(codec_names, str, subtitle_codec_name, oc, "s");
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:64:20: note: expanded from macro 'MATCH_PER_TYPE_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2274:63: warning: '&&' within '||' [-Wlogical-op-parentheses]
+                        input_descriptor && output_descriptor &&
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2274:63: note: place parentheses around the '&&' expression to silence this warning
+                        input_descriptor && output_descriptor &&
+                                                              ^
+                        (
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2407:37: warning: 'codec' is deprecated [-Wdeprecated-declarations]
+            if (av_opt_set(ost->st->codec, "flags", e->value, 0) < 0)
+                                    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavformat/avformat.h:892:5: note: 'codec' has been explicitly marked deprecated here
+    attribute_deprecated
+    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/attributes.h:94:49: note: expanded from macro 'attribute_deprecated'
+#    define attribute_deprecated __attribute__((deprecated))
+                                                ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2485:21: warning: 5 enumeration values not handled in switch: 'AVMEDIA_TYPE_UNKNOWN', 'AVMEDIA_TYPE_DATA', 'AVMEDIA_TYPE_SUBTITLE'... [-Wswitch]
+            switch (ost->enc_ctx->codec_type) {
+                    ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2579:36: warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+        int in_file_index = strtol(o->metadata_map[i].u.str, &p, 0);
+                                   ^~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/xulin/AppData/Local/Android/Sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include\stdlib.h:91:25: note: passing argument to parameter '__s' here
+long strtol(const char* __s, char** __end_ptr, int __base);
+                        ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2632:21: warning: initializing 'const char *' with an expression of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        const char *p = o->program[i].u.str;
+                    ^   ~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2661:11: warning: assigning to 'const char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        p = o->program[i].u.str;
+          ^ ~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2703:22: warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+        val = strchr(o->metadata[i].u.str, '=');
+                     ^~~~~~~~~~~~~~~~~~~~
+C:/Users/xulin/AppData/Local/Android/Sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include\string.h:65:26: note: passing argument to parameter '__s' here
+char* strchr(const char* __s, int __ch) __attribute_pure__;
+                         ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2716:33: warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                    if (!strcmp(o->metadata[i].u.str, "rotate")) {
+                                ^~~~~~~~~~~~~~~~~~~~
+C:/Users/xulin/AppData/Local/Android/Sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include\string.h:102:24: note: passing argument to parameter '__lhs' here
+int strcmp(const char* __lhs, const char* __rhs) __attribute_pure__;
+                       ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2724:64: warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+                        av_dict_set(&oc->streams[j]->metadata, o->metadata[i].u.str, *val ? val : NULL, 0);
+                                                               ^~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavutil/dict.h:130:48: note: passing argument to parameter 'key' here
+int av_dict_set(AVDictionary **pm, const char *key, const char *value, int flags);
+                                               ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2753:28: warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+            av_dict_set(m, o->metadata[i].u.str, *val ? val : NULL, 0);
+                           ^~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/libavutil/dict.h:130:48: note: passing argument to parameter 'key' here
+int av_dict_set(AVDictionary **pm, const char *key, const char *value, int flags);
+                                               ^
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:2972:5: warning: assigning to 'const char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    MATCH_PER_TYPE_OPT(codec_names, str, codec_name, NULL, tmp_line);
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:64:20: note: expanded from macro 'MATCH_PER_TYPE_OPT'
+            outvar = o->name[i].u.type;\
+                   ^ ~~~~~~~~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:3165:51: warning: assigning to 'const char *' from 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+    filtergraphs[nb_filtergraphs - 1]->graph_desc = graph_desc;
+                                                  ^ ~~~~~~~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg_opt.c:3343:26: warning: passing 'uint8_t [128]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+        av_strerror(ret, error, sizeof(error));
+                         ^~~~~
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg\libavutil/error.h:97:35: note: passing argument to parameter 'errbuf' here
+int av_strerror(int errnum, char *errbuf, size_t errbuf_size);
+                                  ^
+72 warnings generated.
+[7/8] Building CXX object CMakeFiles/ffmpeg-cmd.dir/ffmpeg/ffmpeg-cmd.cpp.o
+D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp/ffmpeg/ffmpeg-cmd.cpp:4:9: warning: #pragma once in main file [-Wpragma-once-outside-header]
+#pragma once
+        ^
+1 warning generated.
+[8/8] Linking CXX shared library D:\Android\MyProject\AndroidTranscoder\app\build\intermediates\cmake\debug\obj\arm64-v8a\libffmpeg-cmd.so

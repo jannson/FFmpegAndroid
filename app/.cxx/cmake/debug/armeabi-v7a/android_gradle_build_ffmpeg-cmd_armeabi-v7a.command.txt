@@ -1,0 +1,7 @@
+Executable : C:\Users\xulin\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\ninja.exe
+arguments : 
+-C
+D:\Android\MyProject\AndroidTranscoder\app\.cxx\cmake\debug\armeabi-v7a
+ffmpeg-cmd
+jvmArgs : 
+
