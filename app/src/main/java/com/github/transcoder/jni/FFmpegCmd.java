@@ -21,7 +21,7 @@ public class FFmpegCmd {
     //获取转码速率
     private static native double getSpeed();
 
-    public  static  native  int videoDecode(String srcPath, String outPath);
+    public  static  native  int videoDecode(String srcPath);
 
     /**
      * 执行FFMpeg命令， 同步模式

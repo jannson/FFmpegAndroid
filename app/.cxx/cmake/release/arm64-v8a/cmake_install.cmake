@@ -1,4 +1,4 @@
-# Install script for directory: D:/Android/MyProject/AndroidTranscoder/app/src/main/cpp
+# Install script for directory: D:/Android/MyProject/FFmpegAndroid/app/src/main/cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/Android/MyProject/AndroidTranscoder/app/.cxx/cmake/release/arm64-v8a/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/Android/MyProject/FFmpegAndroid/app/.cxx/cmake/release/arm64-v8a/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

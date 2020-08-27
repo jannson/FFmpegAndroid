@@ -4,7 +4,9 @@
 
 #include <libavutil/imgutils.h>
 #include <libavutil/timestamp.h>
+#include "libswscale/swscale.h"
 #include "decode.h"
+#include "ffmpeg.h"
 
 static AVPacket pkt;
 static AVFrame *frame = NULL;
@@ -16,44 +18,9 @@ static int video_frame_count = 0;
 static int audio_frame_count = 0;
 static uint8_t *video_dst_data[4] = {NULL};
 static int video_dst_linesize[4];
-static int video_dst_bufsize;
-#define INBUF_SIZE 4096
-static void pgm_save(unsigned char *buf, int wrap, int xsize, int ysize,char *filename)
-{
-    FILE *f;
-    int i;
-    f = fopen(filename,"w");
-    fprintf(f, "P5\n%d %d\n%d\n", xsize, ysize, 255);
-    for (i = 0; i < ysize; i++)
-        fwrite(buf + i * wrap, 1, xsize, f);
-    fclose(f);
-}
-static void decode(AVCodecContext *dec_ctx, AVFrame *frame, AVPacket *pkt,const char *filename)
-{
-    char buf[1024];
-    int ret;
-    ret = avcodec_send_packet(dec_ctx, pkt);
-    if (ret < 0) {
-        fprintf(stderr, "Error sending a packet for decoding\n");
-        exit(1);
-    }
-    while (ret >= 0) {
-        ret = avcodec_receive_frame(dec_ctx, frame);
-        if (ret == AVERROR(EAGAIN) || ret == AVERROR_EOF)
-            return;
-        else if (ret < 0) {
-            fprintf(stderr, "Error during decoding\n");
-            exit(1);
-        }
-        printf("saving frame %3d\n", dec_ctx->frame_number);
-        fflush(stdout);
-        /* the picture is allocated by the decoder. no need to
-           free it */
-        snprintf(buf, sizeof(buf), "%s-%d", filename, dec_ctx->frame_number);
-        pgm_save(frame->data[0], frame->linesize[0],
-                 frame->width, frame->height, buf);
-    }
-}
+
+#define  USE_MEDIACODEC 0
+
 
 static int open_codec_context(const char* filein,int *stream_idx,AVCodecContext **dec_ctx, AVFormatContext *fmt_ctx, enum AVMediaType type)
 {
@@ -72,9 +39,9 @@ static int open_codec_context(const char* filein,int *stream_idx,AVCodecContext 
         st = fmt_ctx->streams[stream_index];
 
         /* find decoder for the stream */
-        if(type==AVMEDIA_TYPE_VIDEO &&st->codecpar->codec_id == AV_CODEC_ID_H264)
+        if(USE_MEDIACODEC&&type==AVMEDIA_TYPE_VIDEO &&st->codecpar->codec_id == AV_CODEC_ID_H264)
             dec = avcodec_find_decoder_by_name("h264_mediacodec");
-        else if(type==AVMEDIA_TYPE_VIDEO && st->codecpar->codec_id == AV_CODEC_ID_HEVC)
+        else if(USE_MEDIACODEC&&type==AVMEDIA_TYPE_VIDEO && st->codecpar->codec_id == AV_CODEC_ID_HEVC)
             dec = avcodec_find_decoder_by_name("hevc_mediacodec");
         else
             dec = avcodec_find_decoder(st->codecpar->codec_id);
@@ -155,7 +122,7 @@ static int get_format_from_sample_fmt(const char **fmt,enum AVSampleFormat sampl
     return -1;
 }
 
-static int decode_packet(int *got_frame, int cached,const char* video_out)
+static int decode_packet(int *got_frame, int cached)
 {
     int ret = 0;
     int decoded = pkt.size;
@@ -202,6 +169,7 @@ static int decode_packet(int *got_frame, int cached,const char* video_out)
             }
             else if(pix_fmt==AV_PIX_FMT_NV21){
                 fmt = "AV_PIX_FMT_NV21";
+
             }
             else{
                 fmt = "UNKNOWN";
@@ -263,7 +231,7 @@ static int decode_packet(int *got_frame, int cached,const char* video_out)
 
     return decoded;
 }
-int execute_decode(const char *filename,const char *outfilename)
+int execute_decode(const char *filename)
 {
 
     const AVCodec *codec;
@@ -272,8 +240,7 @@ int execute_decode(const char *filename,const char *outfilename)
     AVFormatContext *fmt_ctx = NULL;
 
     AVStream *video_stream = NULL, *audio_stream = NULL;
-    FILE *video_dst_file = NULL;
-
+    AVDictionary* dict = NULL;
 
     int ret = 0, got_frame;
 
@@ -284,8 +251,8 @@ int execute_decode(const char *filename,const char *outfilename)
     avformat_network_init();
 
     av_register_all();
-
-    if(avformat_open_input(&fmt_ctx,filename,NULL,NULL)<0){
+    av_dict_set(&dict,"rtsp_transport","tcp",0);
+    if(avformat_open_input(&fmt_ctx,filename,NULL,&dict)<0){
         LOGE("Could not open source file %s\n", filename);
         return -1;
     }
@@ -295,12 +262,6 @@ int execute_decode(const char *filename,const char *outfilename)
     }
     if(open_codec_context(filename,&video_stream_idx,&video_dec_ctx,fmt_ctx,AVMEDIA_TYPE_VIDEO)>=0){
         video_stream  = fmt_ctx->streams[video_stream_idx];
-        video_dst_file = fopen(outfilename,"wb");
-        if(!video_dst_file){
-            LOGE("Could not open destination file %s\n", outfilename);
-            ret = 1;
-            goto end;
-        }
 
         /* allocate image where the decoded image will be put */
         width = video_dec_ctx->width;
@@ -312,7 +273,6 @@ int execute_decode(const char *filename,const char *outfilename)
             LOGE("Could not allocate raw video buffer\n");
             goto end;
         }
-        video_dst_bufsize = ret;
     }
 
     if(open_codec_context(filename,&audio_stream_idx,&audio_dec_ctx,fmt_ctx,AVMEDIA_TYPE_AUDIO)>=0){
@@ -322,8 +282,8 @@ int execute_decode(const char *filename,const char *outfilename)
 
     av_dump_format(fmt_ctx,0,filename,0);
 
-    if(!audio_stream&&!video_stream){
-        LOGE( "Could not find audio or video stream in the input, aborting\n");
+    if(!video_stream){
+        LOGE( "Could not find video stream in the input, aborting\n");
         ret = 1;
         goto end;
     }
@@ -340,7 +300,7 @@ int execute_decode(const char *filename,const char *outfilename)
     pkt.size = 0;
 
     if (video_stream)
-        LOGD("Demuxing video from file '%s' into '%s'\n", filename, outfilename);
+        LOGD("Demuxing video from file '%s'\n", filename);
     if (audio_stream)
         LOGD("Demuxing audio from file '%s'\n", filename);
 
@@ -348,7 +308,7 @@ int execute_decode(const char *filename,const char *outfilename)
     while (av_read_frame(fmt_ctx, &pkt) >= 0) {
         AVPacket orig_pkt = pkt;
         do {
-            ret = decode_packet(&got_frame, 0,outfilename);
+            ret = decode_packet(&got_frame, 0);
             if (ret < 0)
                 break;
             pkt.data += ret;
@@ -361,17 +321,10 @@ int execute_decode(const char *filename,const char *outfilename)
     pkt.data = NULL;
     pkt.size = 0;
     do {
-        decode_packet(&got_frame, 1,outfilename);
+        decode_packet(&got_frame, 1);
     } while (got_frame);
 
-    printf("Demuxing succeeded.\n");
-
-    if (video_stream) {
-        LOGD("Play the output video file with the command:\n"
-             "ffplay -f rawvideo -pix_fmt %s -video_size %dx%d %s\n",
-             av_get_pix_fmt_name(pix_fmt), width, height,
-             outfilename);
-    }
+    LOGD("Demuxing succeeded.\n");
 
     if (audio_stream) {
         enum AVSampleFormat sfmt = audio_dec_ctx->sample_fmt;
@@ -398,8 +351,6 @@ int execute_decode(const char *filename,const char *outfilename)
     avcodec_free_context(&video_dec_ctx);
     avcodec_free_context(&audio_dec_ctx);
     avformat_close_input(&fmt_ctx);
-    if (video_dst_file)
-        fclose(video_dst_file);
 
     av_frame_free(&frame);
     av_free(video_dst_data[0]);

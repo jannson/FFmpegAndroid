@@ -47,21 +47,12 @@ public class TranscodeActivity extends AppCompatActivity implements View.OnClick
     private TextView mTvDuration;
     private TextView mTvVcodec;
     private TextView mTvRotation;
-    private EditText mEditTargetWidth;
-    private EditText mEditTargetHeight;
-    private EditText mEditTargetFPS;
-    private EditText mEditTargetBitrate;
-    private EditText mEditSavePath;
-    private ProgressBar mPbTranscode;
-    private TextView mTvTimeSpent;
-    private TextView mTvProgress;
-    private TextView mTvTimeRemaining;
+
     private VideoInfo mInfo;
     private Handler mHandler = new Handler(Looper.getMainLooper());
-    private Button mBtnStartTranscode;
+
     private Button mBtnStartDecode;
-    private Spinner mSpinnerPresets;
-    private String mPreset;
+
 
     public static String getDetailTime() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.getDefault());
@@ -89,8 +80,7 @@ public class TranscodeActivity extends AppCompatActivity implements View.OnClick
 
         mIvCover = findViewById(R.id.iv_cover);
         mIvCover.setOnClickListener(this);
-        mBtnStartTranscode = findViewById(R.id.btn_start_transcode);
-        mBtnStartTranscode.setOnClickListener(this::onClick);
+
         mBtnStartDecode = findViewById(R.id.btn_start_decode);
         mBtnStartDecode.setOnClickListener(this::onClick);
 
@@ -100,38 +90,6 @@ public class TranscodeActivity extends AppCompatActivity implements View.OnClick
         mTvDuration = findViewById(R.id.tv_duration);
         mTvVcodec = findViewById(R.id.tv_vcodec);
         mTvRotation = findViewById(R.id.tv_rotation);
-
-        mEditTargetWidth = findViewById(R.id.edit_width);
-        mEditTargetHeight = findViewById(R.id.edit_height);
-        mEditTargetFPS = findViewById(R.id.edit_fps);
-        mEditTargetBitrate = findViewById(R.id.edit_bitrate);
-        mEditSavePath = findViewById(R.id.edit_save_path);
-        mSpinnerPresets = findViewById(R.id.spinner_preset);
-        mSpinnerPresets.setDropDownWidth(300);
-        mSpinnerPresets.setDropDownHorizontalOffset(100);
-        mSpinnerPresets.setDropDownVerticalOffset(100);
-        String[] presets = getResources().getStringArray(R.array.presets);
-        mPreset = presets[1];
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.item_selected_preset, presets);
-        adapter.setDropDownViewResource(R.layout.item_presets);
-        mSpinnerPresets.setAdapter(adapter);
-        mSpinnerPresets.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                mPreset = presets[position];
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        mSpinnerPresets.setSelection(1);
-
-        mPbTranscode = findViewById(R.id.pb_transcode);
-        mTvTimeSpent = findViewById(R.id.tv_time_spent);
-        mTvProgress = findViewById(R.id.tv_trascode_progress);
-        mTvTimeRemaining = findViewById(R.id.tv_time_remaining);
 
         checkPermission();
     }
@@ -155,56 +113,19 @@ public class TranscodeActivity extends AppCompatActivity implements View.OnClick
                 Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(i, PICK_VIDEO_REQUEST);
                 break;
-            case R.id.btn_start_transcode:
-                mIvCover.setClickable(false);
-                mBtnStartTranscode.setEnabled(false);
-                mTvTimeSpent.setText("耗时：00:00");
-                new Thread(this::startTranscode).start();
-                break;
             case R.id.btn_start_decode:
-                mVideoPath = "rtmp://58.200.131.2:1935/livetv/hunantv";
-                updateVideo();
+//                mVideoPath = "rtmp://58.200.131.2:1935/livetv/hunantv";
+                mVideoPath = "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov";
                 new Thread(this::decode).start();
+                updateVideo();
+
 
 
         }
     }
 
     private void decode(){
-        FFmpegCmd.videoDecode(mVideoPath,mEditSavePath.getText().toString());
-    }
-
-    private void startTranscode() {
-        long startTime = System.currentTimeMillis();
-        FFmpegCmd.transcode(mVideoPath,
-                mEditSavePath.getText().toString(),
-                Integer.valueOf(mEditTargetFPS.getText().toString()),
-                Integer.valueOf(mEditTargetBitrate.getText().toString()),
-                Integer.valueOf(mEditTargetWidth.getText().toString()),
-                Integer.valueOf(mEditTargetHeight.getText().toString()),
-                mInfo.duration,
-                mPreset,
-                mInfo,
-                (progress,timeRemaining) -> mHandler.post(() -> {
-                    mPbTranscode.setProgress(progress);
-                    mTvProgress.setText(progress + "%");
-                    int time = (int) ((System.currentTimeMillis() - startTime) / 1000);
-                    mTvTimeSpent.setText("耗时：" + Gutil.parseTime(time));
-                    mTvTimeRemaining.setText("剩余："+ Gutil.parseTime((int) (timeRemaining/1000)));
-                }));
-        MediaTool.insertMedia(getApplicationContext(), mEditSavePath.getText().toString());
-        mHandler.postDelayed(() -> {
-            mIvCover.setClickable(true);
-            mBtnStartTranscode.setEnabled(true);
-            Uri uri = Uri.parse(mEditSavePath.getText().toString());
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setDataAndType(uri, "video/mp4");
-            try {
-                startActivity(intent);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }, 1000);
+        FFmpegCmd.videoDecode(mVideoPath);
     }
 
     @Override
@@ -226,21 +147,22 @@ public class TranscodeActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void updateVideo() {
-        Bitmap videoFrame = MediaTool.getVideoFrame(mVideoPath, 2000000);
-        mIvCover.setImageBitmap(videoFrame);
-        mInfo = FFmpegCmd.getVideoInfo(mVideoPath);
-        mTvResolution.setText("分辨率：" + mInfo.width + "x" + mInfo.height);
-        mTvBitrate.setText("码率：" + Gutil.bitrateFormat(mInfo.bitrate));
-        mTvFps.setText("FPS：" + mInfo.fps);
-        mTvDuration.setText("视频时长：" + Gutil.parseTime((int) mInfo.duration/1000));
-        mTvVcodec.setText("Video Codec: " + mInfo.videoCodec);
-        mTvRotation.setText("Video Rotation: " + mInfo.rotation+"°");
+        //Bitmap videoFrame = MediaTool.getVideoFrame(mVideoPath, 2000000);
+        //mIvCover.setImageBitmap(videoFrame);
+        new Thread(){
+            @Override
+            public void run() {
+                mInfo = FFmpegCmd.getVideoInfo(mVideoPath);
+                runOnUiThread(()->{
+                    mTvResolution.setText("分辨率：" + mInfo.width + "x" + mInfo.height);
+                    mTvBitrate.setText("码率：" + Gutil.bitrateFormat(mInfo.bitrate));
+                    mTvFps.setText("FPS：" + mInfo.fps);
+                    mTvDuration.setText("视频时长：" + Gutil.parseTime((int) mInfo.duration/1000));
+                    mTvVcodec.setText("Video Codec: " + mInfo.videoCodec);
+                    mTvRotation.setText("Video Rotation: " + mInfo.rotation+"°");
+                });
+            }
+        }.start();
 
-        mEditTargetBitrate.setText("4000");
-        mEditTargetFPS.setText("30");
-//        mEditTargetWidth.setText(mInfo.width + "");
-//        mEditTargetHeight.setText(mInfo.height + "");
-        String path = getVideoPath() + getDetailTime() + ".mp4";
-        mEditSavePath.setText(path);
     }
 }

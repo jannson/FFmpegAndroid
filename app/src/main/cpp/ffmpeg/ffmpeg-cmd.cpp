@@ -112,16 +112,14 @@ Java_com_github_transcoder_jni_FFmpegCmd_retrieveInfo(JNIEnv *env, jclass clazz,
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_github_transcoder_jni_FFmpegCmd_videoDecode(JNIEnv *env, jclass clazz, jstring src_path,
-                                                     jstring out_path) {
+Java_com_github_transcoder_jni_FFmpegCmd_videoDecode(JNIEnv *env, jclass clazz, jstring src_path) {
     const char* pathIn =env->GetStringUTFChars(src_path, JNI_FALSE);
-    const char* pathOut =env->GetStringUTFChars(out_path, JNI_FALSE);
 
     //set java vm
     JavaVM *jvm = NULL;
     env->GetJavaVM(&jvm);
     av_jni_set_java_vm(jvm, NULL);
 
-    int code = execute_decode(pathIn,pathOut);
+    int code = execute_decode(pathIn);
     return  code;
 }
